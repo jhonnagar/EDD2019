@@ -1,0 +1,61 @@
+
+package tarea2;
+
+
+public class Tarea2 {
+
+  
+    public static void main(String[] args) {
+    // prueba de cada metodo 
+  boolean print =  esvacia(insertar(bolsavacia(),"hola"));
+  System.out.print(print);
+  int numero = cuantos(insertar(insertar(insertar(bolsavacia(),"perro"),"pato"),"pato"),"pato");
+  System.out.print(numero);
+    }
+
+ //metodo para ver si la lista esta vacia
+ static public boolean esvacia(bolsa esvacia){
+     bolsa inicio = esvacia.getSiguiente();
+    if (inicio ==null){
+    return true;}
+    else 
+        return false ;
+    }
+ // meetodo para crear una nueva bolsa
+static public bolsa bolsavacia() {
+    bolsa nueva = new bolsa();
+     return nueva;
+}
+//metodo para insertar bolsas y elementos
+static public bolsa insertar (bolsa bolsa, Object elemento){
+   bolsa nueva = new bolsa();
+   if (bolsa.getSiguiente()==null){
+   bolsa.setSiguiente(nueva);
+   nueva.setElemento(elemento);
+
+   
+   }else{
+   bolsa temp = bolsa;
+   while(temp.getSiguiente()!=null){
+    temp = temp.getSiguiente();
+   } 
+    temp.setSiguiente(nueva);
+    nueva.setElemento(elemento);
+    nueva.setSiguiente(null);
+   
+   }
+        
+   return bolsa;
+}
+// metodo para contar la cantidad de elementos de un tipo 
+static public int cuantos(bolsa bolsa, Object elemento){
+int numero=0;
+    bolsa temp = bolsa;
+   while(temp.getSiguiente()!=null){
+    temp = temp.getSiguiente();
+    if(elemento==temp.getElemento()) {numero +=1;}
+    
+   } 
+return numero;
+}
+}
