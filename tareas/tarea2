@@ -59,3 +59,32 @@ int numero=0;
 return numero;
 }
 }
+//---------------------------------------------------------------------------------------------------------
+public class bolsa {
+private bolsa siguiente ;
+private Object elemento ;
+ 
+public void bolsa(){
+this.elemento=null;
+this.siguiente=null;
+}
+
+    public bolsa getSiguiente() {
+        return siguiente;
+    }
+
+    public void setSiguiente(bolsa siguiente) {
+        this.siguiente = siguiente;
+    }
+
+    public Object getElemento() {
+        return elemento;
+    }
+
+    public void setElemento(Object elemento) {
+        this.elemento = elemento;
+    }
+
+}
+
+
