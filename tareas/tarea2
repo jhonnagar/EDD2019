@@ -1,4 +1,3 @@
-
 package tarea2;
 
 
@@ -32,21 +31,34 @@ static public bolsa insertar (bolsa bolsa, Object elemento){
    if (bolsa.getSiguiente()==null){
    bolsa.setSiguiente(nueva);
    nueva.setElemento(elemento);
-
+   nueva.setSiguiente(bolsa);
    
    }else{
-   bolsa temp = bolsa;
-   while(temp.getSiguiente()!=null){
+   bolsa temp = bolsa.getSiguiente();
+   while(temp.getSiguiente()!=bolsa){
     temp = temp.getSiguiente();
    } 
     temp.setSiguiente(nueva);
     nueva.setElemento(elemento);
-    nueva.setSiguiente(null);
+    nueva.setSiguiente(bolsa);
    
    }
         
    return bolsa;
 }
+// metodo para contar la cantidad de elementos de un tipo 
+static public int cuantos(bolsa bolsa, Object elemento){
+int numero=0;
+    bolsa temp = bolsa.getSiguiente();
+   while(temp.getSiguiente()!=bolsa){
+    temp = temp.getSiguiente();
+    if(elemento==temp.getElemento()) {numero +=1;}
+    
+   } 
+return numero;
+}
+}
+
 // metodo para contar la cantidad de elementos de un tipo 
 static public int cuantos(bolsa bolsa, Object elemento){
 int numero=0;
